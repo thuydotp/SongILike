@@ -1,0 +1,43 @@
+.main-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    .content-box {
+        display: flex;
+        flex-grow: 1;
+
+        .side-bar {
+            background-color: green;
+            flex-basis: 230px;
+        }
+        
+        .main-view {
+            background-color: pink;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+
+            .content-header {
+                background-color: thistle;
+                flex-basis: 80px;
+            }
+
+            .content-body {
+                background-color: yellow;
+                flex-grow: 1;
+                overflow-y: auto;
+                height: 300px;
+
+                .item {
+                    padding: 30px;
+                }
+            }
+        }
+    }    
+    
+    .now-playing-bar {
+        background-color: yellowgreen;
+        flex-basis: 90px;
+    }
+}
