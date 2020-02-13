@@ -1,1 +1,5 @@
-<p>side-bar works!</p>
+<div *ngFor="let menuItem of menu">
+  <a [title]="menuItem.name" [routerLink]="menuItem.segment">
+    {{ menuItem.name }}
+  </a>
+</div>
