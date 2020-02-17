@@ -1,6 +1,40 @@
-<h1>Song I Like</h1>
-<div *ngFor="let menuItem of menu">
-  <a [title]="menuItem.name" [routerLink]="menuItem.segment">
-    {{ menuItem.name }}
-  </a>
+<div class="side-bar-container">
+  <div class="brand-logo">    
+    <i class="fa fa-music fa-3x"></i>
+    <span class="logo-text">Song I Like</span>
+  </div>
+  <ul>
+    <li *ngFor="let menuItem of mainMenu">
+      <a [routerLink]="menuItem.segment" routerLinkActive="active-link" [title]="menuItem.displayedName">
+        <div class="menu-item">
+          <i [class]="menuItem.icon"></i>
+          <span class="menu-text">{{menuItem.displayedName}}</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+  <ul>
+
+    <div class="menu-header">Playlists</div>
+    <li *ngFor="let playlistItem of playlistItems">
+      <a href="#">
+        <div class="menu-item">
+          <i [class]="playlistItem.icon"></i>
+          <span class="menu-text">{{playlistItem.displayedName}}</span>
+        </div>
+      </a>
+    </li>
+    <hr class="menu-horizontal-line" />
+  </ul>
+  <div class="my-playlists">
+    <ul>
+      <li *ngFor="let playlist of myPlaylists">
+        <a href="#">
+          <div class="menu-item">
+            <span>{{playlist.displayedName}}</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
