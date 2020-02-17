@@ -1,6 +1,3 @@
-import { CollectionComponent } from './collection/collection.component';
-import { AccountComponent } from './account/account.component';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,18 +10,12 @@ import { SearchModule } from './search/search.module';
 import { AccountModule } from './account/account.module';
 import { CollectionModule } from './collection/collection.module';
 
-
 import { AngularInstructionComponent } from './angular-instruction/angular-instruction.component';
-import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AngularInstructionComponent,
-
-    AccountComponent,
-    CollectionComponent,
-    SearchComponent
+    AngularInstructionComponent
   ],
   imports: [
     BrowserModule,
