@@ -13,6 +13,8 @@ import { TrackListComponent } from './components/track-list/track-list.component
   ],
   exports: [
     TrackListComponent
+  ],
+  providers: [
   ]
 })
 export class SharedModule { }

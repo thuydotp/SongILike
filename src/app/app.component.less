@@ -2,7 +2,7 @@ app-layout {
   display: block;
   padding: 0;
   margin: 0;
-  height: 100%;  
+  height: 100%;
 }
 
 .main-container {
@@ -45,5 +45,72 @@ app-layout {
   .now-playing-bar {
     background-color: yellowgreen;
     flex-basis: 90px;
+  }
+}
+
+.overlay-wrapper {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2;
+  cursor: pointer;
+
+  &.isOpen {
+    display: block;
+  }
+
+  .overlay-container {
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 15%;
+
+    .close-overlay {
+      display: inline-block;
+    }
+    
+    .input-box {
+      position: relative;
+      background-color: #282828;
+      padding: 32px 0;
+      text-align: left;
+
+      .content-spacing {
+        padding: 0 32px;
+        margin: 0;
+
+        .input-box-label {
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 0.015em;
+          font-weight: var(--glue-font-weight-bold);
+          color: #fff;
+          text-transform: none;
+          margin-bottom: 0.5em;
+        }
+
+        .input-box-input {
+          font-size: 48px;
+          line-height: 56px;
+          letter-spacing: -0.005em;
+          font-weight: var(--glue-font-weight-black);
+          color: #fff;
+          text-transform: none;
+          caret-color: #1db954;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          background-color: transparent;
+          border: none;
+        }
+      }
+    }
   }
 }

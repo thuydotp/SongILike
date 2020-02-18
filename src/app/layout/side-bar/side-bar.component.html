@@ -1,5 +1,5 @@
 <div class="side-bar-container">
-  <div class="brand-logo">    
+  <div class="brand-logo">
     <i class="fa fa-music fa-3x"></i>
     <span class="logo-text">Song I Like</span>
   </div>
@@ -16,11 +16,19 @@
   <ul>
 
     <div class="menu-header">Playlists</div>
-    <li *ngFor="let playlistItem of playlistItems">
+    <li>
       <a href="#">
         <div class="menu-item">
-          <i [class]="playlistItem.icon"></i>
-          <span class="menu-text">{{playlistItem.displayedName}}</span>
+          <i class="fa fa-plus"></i>
+          <span class="menu-text">Add New Playlist</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <div class="menu-item">
+          <i class="fa fa-heartbeat"></i>
+          <span class="menu-text">Liked Songs</span>
         </div>
       </a>
     </li>
