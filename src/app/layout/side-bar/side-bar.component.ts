@@ -1,7 +1,6 @@
 import { Collection } from '../../core/interfaces/collection';
 import { CollectionService } from '../../core/services/collection.service';
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,7 +8,7 @@ import { EventEmitter } from 'protractor';
   styleUrls: ['./side-bar.component.less']
 })
 export class SideBarComponent implements OnInit {
-  @Output() addNewPlaylistEvent : EventEmitter;
+  @Output() openNewPlaylistOverlayEvent = new EventEmitter<boolean>();
 
   mainMenu = [
     {id: 1, displayedName: 'Home', segment: 'home', icon: 'fa fa-home'},
@@ -30,9 +29,15 @@ export class SideBarComponent implements OnInit {
 
   constructor(private collectionService: CollectionService) { }
 
-  myPlaylists: Collection[];
+  get myPlaylists(){
+    return this.collectionService.getUserCollection();
+  }
   ngOnInit() {
-    this.myPlaylists = this.collectionService.userCollections || [];
+    // this.myPlaylists = this.collectionService.getUserCollection();
+  }
+
+  onOpenNewPlaylistOverlay(){
+    this.openNewPlaylistOverlayEvent.emit(true);
   }
 
 }

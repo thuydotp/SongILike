@@ -4,11 +4,10 @@ import { Collection } from "../interfaces/collection";
 @Injectable({
   providedIn: "root"
 })
-
 export class CollectionService {
   constructor() {}
 
-  userCollections: Collection[] = [
+  private userCollections: Collection[] = [
     { id: 1, displayedName: "Playlist 1", author: "", tracks: [] },
     { id: 2, displayedName: "Playlist 2", author: "", tracks: [] },
     { id: 3, displayedName: "Playlist 3", author: "", tracks: [] },
@@ -20,4 +19,22 @@ export class CollectionService {
     { id: 9, displayedName: "Playlist 9", author: "", tracks: [] },
     { id: 10, displayedName: "Playlist 10", author: "", tracks: [] }
   ];
+
+  getUserCollection(): Collection[] {
+    return this.userCollections || [];
+  }
+
+  addCollection(collectionName: string) {
+    if (collectionName && collectionName.trim()) {
+
+      let collectionId = this.userCollections.length + 1;
+      let newCollection: Collection = {
+        id: collectionId,
+        displayedName: collectionName,
+        author: "Song I Like",
+        tracks: []
+      };
+      this.userCollections.push(newCollection);
+    }
+  }
 }

@@ -1,13 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-    padding: 0;
-    margin: 0;
-    height: 100vh;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
 }
 
 app-root {
-    display: block;
-    padding: 0;
-    margin: 0;
-    height: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+//================================= Buttons =================================//
+.sil-btn {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  letter-spacing: 1.76px;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: 500px;
+  color: #fff;
+  -webkit-transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
+  transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
+  will-change: transform;
+  white-space: nowrap;
+  padding: 8px 34px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+
+  &.success {
+    background-color: #1db954;
+  }
+
+  &.default {
+    background-color: transparent;
+    border: 2px solid #fff;
+  }
+}
+
+.sil-btn-wrapper {
+  display: inline-block;
+  padding: 0 10px;
 }

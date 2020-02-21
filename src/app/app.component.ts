@@ -1,3 +1,5 @@
+import { CollectionService } from "./core/services/collection.service";
+import { Collection } from "./core/interfaces/collection";
 import { Component } from "@angular/core";
 
 @Component({
@@ -14,9 +16,22 @@ export class AppComponent {
     { id: 4, name: "Profile", segment: "account" }
   ];
 
-  isOverlayOpen = true;
+  isOverlayOpen = false;
+  newCollectionName: string = '';
+
+  constructor(private collectionService: CollectionService) {}
 
   closeOverlay() {
     this.isOverlayOpen = false;
+    this.newCollectionName = null;
+  }
+
+  addNewCollection() {
+    this.collectionService.addCollection(this.newCollectionName);
+    this.closeOverlay();
+  }
+
+  onOpenNewPlaylistOverlay(){
+    this.isOverlayOpen = true;
   }
 }
