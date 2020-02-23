@@ -16,13 +16,13 @@ export class AppComponent {
     { id: 4, name: "Profile", segment: "account" }
   ];
 
-  isOverlayOpen = false;
+  // isOverlayOpen = false;
   newCollectionName: string = '';
 
   constructor(private collectionService: CollectionService) {}
 
   closeOverlay() {
-    this.isOverlayOpen = false;
+    // this.isOverlayOpen = false;
     this.newCollectionName = null;
   }
 
@@ -32,6 +32,6 @@ export class AppComponent {
   }
 
   onOpenNewPlaylistOverlay(){
-    this.isOverlayOpen = true;
+    // this.isOverlayOpen = true;
   }
 }

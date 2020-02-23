@@ -1,0 +1,32 @@
+<div>
+    <div class="overlay-header">
+        <h3>Overlay Header</h3>
+    </div>
+    <div class="overlay-body">
+        <p>Overlay body</p>
+        <ng-template dynamic-anchor></ng-template>
+    </div>
+</div>
+
+<div class="overlay-wrapper" [class.isOpen]="isOverlayOpen">
+    <div class="overlay-container">
+      <div class="close-overlay" (click)="closeOverlay()">
+        <i class="fa fa-close"></i>
+      </div>
+      <div id="text">Create a new playlist</div>  
+      <div class="input-box">
+        <div class="content-spacing">
+          <h4 class="input-box-label">Playlist Name</h4>
+          <input type="text" class="input-box-input" placeholder="New playlist..." [(ngModel)]="newCollectionName">
+        </div>
+      </div>
+      <div>
+        <div class="sil-btn-wrapper">
+          <button class="sil-btn default" (click)="closeOverlay()">Cancel</button>
+        </div>
+        <div class="sil-btn-wrapper">
+          <button class="sil-btn success" (click)="addNewCollection()">Create</button>
+        </div>      
+      </div>
+    </div>
+  </div>
