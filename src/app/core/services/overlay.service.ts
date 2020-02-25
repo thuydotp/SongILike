@@ -2,6 +2,7 @@ import { DeletePlaylistComponent } from './../../shared/components/delete-playli
 import { OverlayModel } from "./../interfaces/overlay";
 import { AddNewPlaylistComponent } from "./../../shared/components/add-new-playlist/add-new-playlist.component";
 import { Injectable } from "@angular/core";
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
@@ -9,6 +10,9 @@ import { Injectable } from "@angular/core";
 
 export class OverlayService {
   constructor() {}
+  isOpen: boolean = false;
+  private openOverlaySubject : Subject<boolean> = new Subject<boolean>();
+  $openOverlay = this.openOverlaySubject.asObservable();
 
   getOverlay(): OverlayModel[] {
     return [
@@ -19,4 +23,8 @@ export class OverlayService {
       new OverlayModel(AddNewPlaylistComponent, { name: "Song C" })
     ];
   }
+
+  toggleOverlay(isOpen: boolean){
+    this.openOverlaySubject.next(isOpen);
+  }  
 }

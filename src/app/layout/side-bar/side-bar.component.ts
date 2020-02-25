@@ -1,4 +1,4 @@
-import { Collection } from '../../core/interfaces/collection';
+import { OverlayService } from 'src/app/core/services/overlay.service';
 import { CollectionService } from '../../core/services/collection.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -8,8 +8,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./side-bar.component.less']
 })
 export class SideBarComponent implements OnInit {
-  @Output() openNewPlaylistOverlayEvent = new EventEmitter<boolean>();
-
   mainMenu = [
     {id: 1, displayedName: 'Home', segment: 'home', icon: 'fa fa-home'},
     {id: 2, displayedName: 'Search', segment: 'search', icon: 'fa fa-search'},
@@ -27,7 +25,8 @@ export class SideBarComponent implements OnInit {
   //   {id: 7, displayedName: 'Acoustic'}
   // ];
 
-  constructor(private collectionService: CollectionService) { }
+  constructor(private collectionService: CollectionService,
+    private overlayService: OverlayService) { }
 
   get myPlaylists(){
     return this.collectionService.getUserCollection();
@@ -37,7 +36,7 @@ export class SideBarComponent implements OnInit {
   }
 
   onOpenNewPlaylistOverlay(){
-    this.openNewPlaylistOverlayEvent.emit(true);
+    this.overlayService.toggleOverlay(true);
   }
 
 }

@@ -15,23 +15,16 @@ export class AppComponent {
     { id: 3, name: "Collection", segment: "collection" },
     { id: 4, name: "Profile", segment: "account" }
   ];
+  
+  isOverlayOpen = false;
 
-  // isOverlayOpen = false;
-  newCollectionName: string = '';
-
-  constructor(private collectionService: CollectionService) {}
-
-  closeOverlay() {
-    // this.isOverlayOpen = false;
-    this.newCollectionName = null;
-  }
-
-  addNewCollection() {
-    this.collectionService.addCollection(this.newCollectionName);
-    this.closeOverlay();
-  }
+  constructor() {}
 
   onOpenNewPlaylistOverlay(){
-    // this.isOverlayOpen = true;
+    this.isOverlayOpen = true;
+  }
+
+  onToggleOverlay(isOpen: boolean){
+    this.isOverlayOpen = isOpen;
   }
 }

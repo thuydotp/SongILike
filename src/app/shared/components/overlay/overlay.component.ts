@@ -24,7 +24,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   currentAdIndex = -1;
   interval: any;
-  isOverlayOpen = true;
+  isOverlayOpen = false;
   newCollectionName: string = '';
 
   constructor(
@@ -37,6 +37,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.models = this.overlayService.getOverlay() || [];
     this.loadComponent();
     this.getAds();
+
+    this.overlayService.$openOverlay.subscribe((isOpen: boolean) => {
+      this.isOverlayOpen = isOpen;
+    });
   }
 
   ngOnDestroy() {
@@ -63,7 +67,8 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   closeOverlay() {
-    this.isOverlayOpen = false;
+    // this.isOverlayOpen = false;
+    this.overlayService.toggleOverlay(false);
     this.newCollectionName = null;
   }
 
@@ -73,6 +78,8 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   onOpenNewPlaylistOverlay(){
-    this.isOverlayOpen = true;
+    // this.isOverlayOpen = true;
+    this.overlayService.toggleOverlay(true);
+
   }
 }

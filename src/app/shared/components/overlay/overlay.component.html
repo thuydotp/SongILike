@@ -1,14 +1,19 @@
-<div>
+<div class="overlay-wrapper" [class.isOpen]="isOverlayOpen">
+  <div class="overlay-container">
+    <div class="close-overlay" (click)="closeOverlay()">
+      <i class="fa fa-close"></i>
+    </div>
     <div class="overlay-header">
-        <h3>Overlay Header</h3>
+      <p>Overlay Header</p>
     </div>
     <div class="overlay-body">
-        <p>Overlay body</p>
-        <ng-template dynamic-anchor></ng-template>
+      <p>Overlay body</p>
+      <ng-template dynamic-anchor></ng-template>
     </div>
+  </div>
 </div>
 
-<div class="overlay-wrapper" [class.isOpen]="isOverlayOpen">
+<!-- <div class="overlay-wrapper" [class.isOpen]="isOverlayOpen">
     <div class="overlay-container">
       <div class="close-overlay" (click)="closeOverlay()">
         <i class="fa fa-close"></i>
@@ -29,4 +34,4 @@
         </div>      
       </div>
     </div>
-  </div>
+  </div> -->
