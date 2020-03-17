@@ -1,7 +1,18 @@
-<p>track-list works!</p>
-<h3>{{collection.name}}</h3>
-<div class="track-item" *ngFor="let track of collection.tracks">
-    <b>{{track.name}}</b>
-    <!-- <span>{{ track.artists}}</span> -->
-    <!-- <p *ngFor="let artist of artists" href="#">{{artist}}</p> -->
+<div class="track-list">
+  <div class="collection-details">
+    <img src="/assets/images/default-img.jpg" class="collection-image">
+    <div class="collection-name">{{collection.displayedName}}</div>
+    <a class="collection-author" href="#">{{collection.author}}</a>
   </div>
+  <div class="tracks">
+    <a class="track-item" *ngFor="let track of collection.tracks" href="#">
+      <div class="track-details">
+        <div class="track-name">{{track.name}}</div>
+        <div class="track-artists">
+          <a *ngFor="let artist of track.artists" href="#" class="track-artist">{{artist.name}}</a>
+        </div>
+      </div>
+      <div class="track-duration">{{convertSecondToMinute(track.duration)}}</div>
+    </a>
+  </div>
+</div>

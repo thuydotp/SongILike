@@ -10,6 +10,7 @@ export interface Collection {
     id: any;
     name: string;
     artists: Artist[];
+    duration: number;
   }
   
   export interface Artist {
