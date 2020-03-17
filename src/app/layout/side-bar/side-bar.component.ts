@@ -1,6 +1,6 @@
-import { OverlayService } from 'src/app/core/services/overlay.service';
-import { CollectionService } from '../../core/services/collection.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { CollectionService } from 'src/app/common/services/collection.service';
+import { OverlayService } from 'src/app/common/services/overlay.service';
 
 @Component({
   selector: 'app-side-bar',

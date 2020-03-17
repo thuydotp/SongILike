@@ -1,5 +1,3 @@
-import { CollectionService } from "./core/services/collection.service";
-import { Collection } from "./core/interfaces/collection";
 import { Component } from "@angular/core";
 
 @Component({

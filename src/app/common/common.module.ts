@@ -35,4 +35,4 @@ import { DeletePlaylistComponent } from './components/delete-playlist/delete-pla
     DeletePlaylistComponent
   ]
 })
-export class SharedModule { }
+export class AppCommonModule { }

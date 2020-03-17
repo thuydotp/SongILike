@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { OverlayService } from "src/app/core/services/overlay.service";
-import { CollectionService } from "src/app/core/services/collection.service";
+import { CollectionService } from '../../services/collection.service';
+import { OverlayService } from '../../services/overlay.service';
 
 @Component({
   selector: "app-add-new-playlist",

@@ -1,4 +1,4 @@
-import { SharedModule } from './../shared/shared.module';
+import { AppCommonModule } from './../common/common.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
@@ -8,7 +8,7 @@ import { HomeComponent } from './home.component';
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    SharedModule
+    AppCommonModule
   ],
   exports: [HomeComponent]
 })
