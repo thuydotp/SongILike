@@ -1,0 +1,43 @@
+@white: #ffff;
+.playlist-container {
+  padding: 8px 24px;
+
+  .playlist-list {
+    color: @white;
+    height: 450px;
+    overflow-y: auto;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+    grid-auto-rows: 1fr;
+
+    .playlist-item {
+      padding: 20px 20px 16px;
+      margin: 8px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: #1b1b1b;
+
+      .collection-image {
+        width: 100%;
+      }
+
+      .collection-name {
+        margin-top: 8px;
+      }
+
+      .collection-author {
+        color: @white;
+        opacity: 0.6;
+        -webkit-transition: opacity 0.2s linear;
+        transition: opacity 0.2s linear;
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+  }
+}

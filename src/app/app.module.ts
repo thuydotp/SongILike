@@ -21,13 +21,13 @@ import { AngularInstructionComponent } from './angular-instruction/angular-instr
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     AppCommonModule,
     LayoutModule,
     HomeModule,
     SearchModule,
     AccountModule,
-    CollectionModule,
-    AppRoutingModule
+    CollectionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

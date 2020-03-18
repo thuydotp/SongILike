@@ -52,7 +52,7 @@ function getDummyTrack(allArtists: Artist[]): Track[] {
 }
 
 function getDummyCollection(allTracks: Track[]): Collection[] {
-  let numberOfCollection = 3;
+  let numberOfCollection = 25;
   let collections: Collection[] = [];
   for (let i = 0; i < numberOfCollection; i++) {
     let index = i + 1;
@@ -72,7 +72,17 @@ let tracks = getDummyTrack(artists);
 let collections = getDummyCollection(tracks);
 let userCollectionIds = [
   `${collectionPrefix}1`,
-  `${collectionPrefix}2`
+  `${collectionPrefix}2`,
+  `${collectionPrefix}3`,
+  `${collectionPrefix}4`,
+  `${collectionPrefix}5`,
+  `${collectionPrefix}6`,
+  `${collectionPrefix}7`,
+  `${collectionPrefix}8`,
+  `${collectionPrefix}9`,
+  `${collectionPrefix}10`,
+  `${collectionPrefix}11`,
+  `${collectionPrefix}12`
 ];
 let userTrackIds = [
   `${trackPrefix}1`,
