@@ -1,8 +1,11 @@
 <div class="track-list">
   <div class="collection-details">
-    <img [src]="collection._coverImageURL" class="collection-image">
-    <div class="collection-name">{{collection.displayedName}}</div>
-    <a class="collection-author" href="#">{{collection.author}}</a>
+    <ng-container *ngIf="collection">
+      <img [src]="collection._coverImageURL" class="collection-image">
+      <div class="collection-name">{{collection.displayedName}}</div>
+      <a class="collection-author" href="#">{{collection.author}}</a>
+    </ng-container>
+
     <div class="track-list-actions">
       <button class="sil-btn success">Play/Pause</button>
       <div class="extra-buttons">
@@ -10,17 +13,19 @@
         <i class="fa fa-ellipsis-h"></i>
       </div>
     </div>
-    <div class="number-of-tracks">{{collection._numberOfTracks}}</div>
+    <div class="number-of-tracks">{{collection ? collection._numberOfTracks : "0 song"}}</div>
   </div>
   <div class="tracks">
-    <a class="track-item" *ngFor="let track of collection.tracks" href="#">
-      <div class="track-details">
-        <div class="track-name">{{track.name}}</div>
-        <div class="track-artists">
-          <a *ngFor="let artist of track.artists" href="#" class="track-artist">{{artist.name}}</a>
+    <ng-container *ngIf="collection">
+      <a class="track-item" *ngFor="let track of collection.tracks" href="#">
+        <div class="track-details">
+          <div class="track-name">{{track.name}}</div>
+          <div class="track-artists">
+            <a *ngFor="let artist of track.artists" href="#" class="track-artist">{{artist.name}}</a>
+          </div>
         </div>
-      </div>
-      <div class="track-duration">{{track._displayedDuration}}</div>
-    </a>
+        <div class="track-duration">{{track._displayedDuration}}</div>
+      </a>
+    </ng-container>
   </div>
 </div>

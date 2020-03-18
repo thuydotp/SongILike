@@ -13,17 +13,17 @@ export class TrackListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.collection = DATA.userCollections[0];
+    this.collection = DATA.user.collections[0];
     this.populateCollection();
   }
 
   private populateCollection() {
-    let numberOfTracks = this.collection.tracks.length;
-    this.collection._numberOfTracks = numberOfTracks > 1 ? `${numberOfTracks} songs` : `${numberOfTracks} song`;
-    this.collection._coverImageURL = this.getCoverImage(this.collection.coverImage);
-    this.collection.tracks.forEach(x => {
-      x._displayedDuration = this.convertSecondToMinute(x.duration);
-    });
+    if(this.collection){
+      let numberOfTracks = this.collection.tracks.length;
+      this.collection._numberOfTracks = numberOfTracks > 1 ? `${numberOfTracks} songs` : `${numberOfTracks} song`;
+      this.collection._coverImageURL = this.getCoverImage(this.collection.coverImage);
+      this.collection.tracks.forEach(x => x._displayedDuration = this.convertSecondToMinute(x.duration));
+    }    
   }
 
   private convertSecondToMinute(durationInSecond: number) {
