@@ -1,6 +1,6 @@
-import { DATA } from './../../interfaces/data';
-import { Component, OnInit } from "@angular/core";
-import { Collection } from '../../interfaces/collection';
+import { DATA } from "./../../interfaces/data";
+import { Component, OnInit, Input } from "@angular/core";
+import { Collection } from "../../interfaces/collection";
 
 @Component({
   selector: "track-list",
@@ -8,17 +8,32 @@ import { Collection } from '../../interfaces/collection';
   styleUrls: ["./track-list.component.less"]
 })
 export class TrackListComponent implements OnInit {
-  collection: Collection;
-  constructor() {}
+  @Input() collection: Collection;
   
+  constructor() {}
+
   ngOnInit() {
     this.collection = DATA.userCollections[0];
+    this.populateCollection();
   }
 
-  convertSecondToMinute(durationInSecond: number){
-    let minute = Math.floor(durationInSecond/60);
-    let second = durationInSecond - (minute * 60);
+  private populateCollection() {
+    let numberOfTracks = this.collection.tracks.length;
+    this.collection._numberOfTracks = numberOfTracks > 1 ? `${numberOfTracks} songs` : `${numberOfTracks} song`;
+    this.collection._coverImageURL = this.getCoverImage(this.collection.coverImage);
+    this.collection.tracks.forEach(x => {
+      x._displayedDuration = this.convertSecondToMinute(x.duration);
+    });
+  }
+
+  private convertSecondToMinute(durationInSecond: number) {
+    let minute = Math.floor(durationInSecond / 60);
+    let second = durationInSecond - minute * 60;
     return `${minute}:${second}`;
+  }
+
+  private getCoverImage(coverImage: string) {
+    return `/assets/images/${coverImage}`;
   }
 
   // collection = <Collection>{
@@ -58,6 +73,4 @@ export class TrackListComponent implements OnInit {
   //     }
   //   ]
   // };
-
-
 }

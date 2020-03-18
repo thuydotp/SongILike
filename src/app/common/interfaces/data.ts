@@ -9,7 +9,8 @@ function getDummyArtist(): Artist[] {
     let index = i + 1;
     artists[i] = <Artist>{
       id: `AT_${index}`,
-      name: `Artist ${index}`
+      name: `Artist ${index}`,
+      coverImage: 'default-img.jpg'
     };
   }
   return artists;
@@ -18,9 +19,10 @@ function getDummyArtist(): Artist[] {
 function getDummyTrack(allArtists: Artist[]): Track[] {
   let numberOfTrack = 10;
   let tracks: Track[] = [];
-  let artist: Artist = {
+  let artist: Artist = <Artist>{
     id: "artist1",
-    name: "Artist 1"
+    name: "Artist 1",
+    coverImage: 'default-img.jpg'
   };
 
   for (let i = 0; i < numberOfTrack; i++) {
@@ -39,7 +41,8 @@ function getDummyTrack(allArtists: Artist[]): Track[] {
       id: `TK_${index}`,
       artists: artists,
       name: `Track ${index}`,
-      duration: Math.floor((Math.random() * 500) + 30)
+      duration: Math.floor((Math.random() * 500) + 30),
+      coverImage: 'default-img.jpg'
     };
   }
   return tracks;
@@ -54,7 +57,8 @@ function getDummyCollection(allTracks: Track[]): Collection[] {
       id: `CL_${index}`,
       displayedName: `Collection ${index}`,
       author: defaultAuthor,
-      tracks: allTracks || []
+      tracks: allTracks || [],
+      coverImage: 'default-img.jpg'
     };
   }
   return collections;

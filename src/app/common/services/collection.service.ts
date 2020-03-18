@@ -31,11 +31,12 @@ export class CollectionService {
     if (collectionName && collectionName.trim()) {
 
       let collectionId = this.userCollections.length + 1;
-      let newCollection: Collection = {
+      let newCollection: Collection = <Collection>{
         id: collectionId,
         displayedName: collectionName,
         author: "Song I Like",
-        tracks: []
+        tracks: [],
+        coverImage: 'default-img.jpg'
       };
       this.userCollections.push(newCollection);
     }

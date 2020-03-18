@@ -1,8 +1,16 @@
 <div class="track-list">
   <div class="collection-details">
-    <img src="/assets/images/default-img.jpg" class="collection-image">
+    <img [src]="collection._coverImageURL" class="collection-image">
     <div class="collection-name">{{collection.displayedName}}</div>
     <a class="collection-author" href="#">{{collection.author}}</a>
+    <div class="track-list-actions">
+      <button class="sil-btn success">Play/Pause</button>
+      <div class="extra-buttons">
+        <i class="fa fa-heart"></i>
+        <i class="fa fa-ellipsis-h"></i>
+      </div>
+    </div>
+    <div class="number-of-tracks">{{collection._numberOfTracks}}</div>
   </div>
   <div class="tracks">
     <a class="track-item" *ngFor="let track of collection.tracks" href="#">
@@ -12,7 +20,7 @@
           <a *ngFor="let artist of track.artists" href="#" class="track-artist">{{artist.name}}</a>
         </div>
       </div>
-      <div class="track-duration">{{convertSecondToMinute(track.duration)}}</div>
+      <div class="track-duration">{{track._displayedDuration}}</div>
     </a>
   </div>
 </div>
