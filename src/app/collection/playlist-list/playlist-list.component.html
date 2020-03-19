@@ -1,7 +1,9 @@
 <div class="playlist-container">
-  <button [routerLink]="['/collection/playlists']">Playlists</button>
-  <button [routerLink]="['/collection/artists']">Artists</button>
-
+  <ul class="sub-menu-container">
+    <li class="sub-menu-item"><a [routerLink]="['/collection/playlists']" href="#" class="sub-menu">Playlists</a></li>
+    <li class="sub-menu-item"><a [routerLink]="['/collection/artists']" href="#" class="sub-menu">Artists</a></li>
+  </ul>
+  
   <div class="playlist-list">
     <a class="playlist-item" *ngFor="let collection of collections">
       <img [src]="collection._coverImageURL" class="collection-image">

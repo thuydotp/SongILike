@@ -1,4 +1,13 @@
-<button [routerLink]="['/collection/playlists']">Playlists</button>
-<button [routerLink]="['/collection/artists']">Artists</button>
+<div class="artist-container">
+  <ul class="sub-menu-container">
+    <li class="sub-menu-item"><a [routerLink]="['/collection/playlists']" href="#" class="sub-menu">Playlists</a></li>
+    <li class="sub-menu-item"><a [routerLink]="['/collection/artists']" href="#" class="sub-menu">Artists</a></li>
+  </ul>
 
-<p>artist-list works!</p>
+  <div class="artist-list">
+    <div class="artist-item" *ngFor="let artist of artists">
+      <img [src]="artist._coverImageURL" class="artist-image">
+      <a class="artist-name" href="#">{{artist.name}}</a>
+      <span class="artist-desciption" href="#">Artist</span>
+    </div>
+  </div>
