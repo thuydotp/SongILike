@@ -52,7 +52,7 @@ function getDummyTrack(allArtists: Artist[]): Track[] {
 }
 
 function getDummyCollection(allTracks: Track[]): Collection[] {
-  let numberOfCollection = 25;
+  let numberOfCollection = 100;
   let collections: Collection[] = [];
   for (let i = 0; i < numberOfCollection; i++) {
     let index = i + 1;
@@ -103,7 +103,7 @@ export let DATA = {
     artists: artists
   },
   user: {
-    collections: collections.filter(x => userCollectionIds.includes(x.id)),
+    collections: collections,//collections.filter(x => userCollectionIds.includes(x.id)),
     tracks: tracks.filter(x => userTrackIds.includes(x.id)),
     artists: artists.filter(x => userArtistIds.includes(x.id)),
     playing: {
